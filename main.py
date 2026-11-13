@@ -1,4 +1,5 @@
 import os, asyncio, random
+from aiohttp import web
 from datetime import datetime, timedelta
 from aiogram import Bot, Dispatcher, types, F
 from aiogram.filters import Command
@@ -200,8 +201,22 @@ async def track(c: types.CallbackQuery):
 async def back(c: types.CallbackQuery):
     await c.message.edit_text("Welcome back to RePhoneHub - 20% OFF 🔥", reply_markup=main_kb())
 
+async def handle(request):
+    return web.Response(text="RePhoneHub Bot is Live!")
+
+async def start_web():
+    app = web.Application()
+    app.router.add_get("/", handle)
+    port = int(os.getenv("PORT", 10000))
+    runner = web.AppRunner(app)
+    await runner.setup()
+    site = web.TCPSite(runner, "0.0.0.0", port)
+    await site.start()
+    print(f"Web server on port {port}")
+
 async def main():
     print("Starting RePhoneHub Bot - USD...")
+    await start_web()
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
