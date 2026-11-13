@@ -73,15 +73,8 @@ def product_text(p):
 
 @dp.message(Command("start"))
 async def cmd_start(message: Message):
-    text = (
-        "📱 <b>Welcome to RePhoneHub</b>\n\n"
-        "Refurbished phones, <b>20% Cheaper</b> than new.\n"
-        "✅ Tested & Certified\n"
-        "✅ 6-Month Warranty\n"
-        "✅ Delivery in Nairobi & Kenya\n\n"
-        "What do you want to do?"
-    )
-    await message.answer(text, parse_mode="HTML", reply_markup=main_menu_kb())
+    text = "📱 Welcome to RePhoneHub\n\nRefurbished phones, 20% Cheaper than new.\n✅ Tested & Certified\n✅ 6-Month Warranty\n✅ Delivery in Nairobi & Kenya"
+    await message.answer(text, reply_markup=main_menu_kb())
         "Welcome to **RePhoneHub** - Refurbished Phones 20% Cheaper Than Back Market 🔥\n\n"
         "⚡ TODAY'S HOT DEALS - 20% OFF ENDS TONIGHT\n\n"
         "1. iPhone 13 128GB Excellent - $271 (was $339) - Only 3 left\n"
