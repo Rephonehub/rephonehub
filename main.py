@@ -3,7 +3,7 @@ from aiohttp import web
 from datetime import datetime, timedelta
 from aiogram import Bot, Dispatcher, types, F
 from aiogram.filters import Command
-from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 BOT_TOKEN = os.getenv("BOT_TOKEN", "PASTE_YOUR_NEW_TOKEN_HERE")
 ADMIN_ID = int(os.getenv("ADMIN_ID", "123456789")) # <-- Put your Telegram ID here
